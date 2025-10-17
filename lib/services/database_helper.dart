@@ -91,4 +91,18 @@
 	      whereArgs: [id],
 	    );
 	  }
+    // Get a record by its ID
+    Future<Map<String, dynamic>?> getRecordById(int id) async {
+      final db = await _db;
+      final result = await db.query(
+        'your_table_name', // replace with your actual table name
+        where: 'id = ?',
+        whereArgs: [id],
+      );
+
+      if (result.isNotEmpty) {
+        return result.first; // return the first matching row
+      }
+      return null; // return null if not found
+    }
 	}
