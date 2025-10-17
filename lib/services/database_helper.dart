@@ -105,4 +105,9 @@
       }
       return null; // return null if not found
     }
+        // Delete all records
+    Future<int> deleteAllRecords() async {
+      final db = await _db;
+      return await db.delete('your_table_name'); 
+    }
 	}
