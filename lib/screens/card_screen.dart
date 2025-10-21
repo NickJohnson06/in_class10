@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import '../services/database_helper.dart';
-import '../main.dart';
+import '../../services/database_helper.dart';
+import '../../main.dart';
 
 class CardsScreen extends StatefulWidget {
   final int folderId;
