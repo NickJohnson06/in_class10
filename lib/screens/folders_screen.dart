@@ -49,6 +49,21 @@ class _FoldersScreenState extends State<FoldersScreen> {
     }
   }
 
+  String _getSuitSymbol(String folderName) {
+  switch (folderName) {
+    case 'Hearts':
+      return '\u2665';  // Unicode: U+2665
+    case 'Diamonds':
+      return '\u2666';  // Unicode: U+2666
+    case 'Spades':
+      return '\u2660';  // Unicode: U+2660
+    case 'Clubs':
+      return '\u2663';  // Unicode: U+2663
+    default:
+      return '📁';
+  }
+}
+
   IconData _getSuitIcon(String folderName) {
     switch (folderName) {
       case 'Hearts':
@@ -56,9 +71,9 @@ class _FoldersScreenState extends State<FoldersScreen> {
       case 'Diamonds':
         return Icons.diamond;
       case 'Spades':
-        return Icons.spa; // Using spa as placeholder
+        return Icons.spa;
       case 'Clubs':
-        return Icons.filter_vintage; // Using filter_vintage as placeholder
+        return Icons.filter_vintage; 
       default:
         return Icons.folder;
     }
@@ -152,10 +167,13 @@ class _FoldersScreenState extends State<FoldersScreen> {
                                                     },
                                                   ),
                                                 )
-                                              : Icon(
-                                                  _getSuitIcon(folderName),
-                                                  size: 64,
-                                                  color: _getSuitColor(folderName),
+                                              : Text(
+                                                  _getSuitSymbol(folderName),
+                                                  style: TextStyle(
+                                                    fontSize: 64,
+                                                    color: _getSuitColor(folderName),
+                                                  )
+                                                  
                                                 ),
                                         ),
                                       ),

@@ -82,8 +82,8 @@ class _CardsScreenState extends State<CardsScreen> {
           title: const Text('Select a Card'),
           content: SizedBox(
             width: double.maxFinite,
+            height: MediaQuery.of(context).size.height * 0.6,
             child: ListView.builder(
-              shrinkWrap: true,
               itemCount: availableCards.length,
               itemBuilder: (context, index) {
                 final card = availableCards[index];

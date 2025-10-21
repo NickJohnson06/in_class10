@@ -87,14 +87,13 @@ class DatabaseHelper {
     for (var suit in suits) {
       for (int i = 0; i < cardNames.length; i++) {
         final cardName = '${cardNames[i]} of $suit';
-        // Using placeholder URLs - you can replace with actual card image URLs
         final imageUrl = 'https://deckofcardsapi.com/static/img/${_getCardCode(cardNames[i], suit)}.png';
         
         await db.insert(tableCards, {
           columnCardName: cardName,
           columnCardSuit: suit,
           columnCardImageUrl: imageUrl,
-          columnCardFolderId: null, // Initially unassigned
+          columnCardFolderId: null, 
         });
       }
     }
@@ -106,6 +105,9 @@ class DatabaseHelper {
     switch (name) {
       case 'Ace':
         value = 'A';
+        break;
+      case '10': 
+        value = '0';
         break;
       case 'Jack':
         value = 'J';
@@ -141,7 +143,7 @@ class DatabaseHelper {
     return '$value$suitCode';
   }
 
-  // ===== FOLDER OPERATIONS =====
+  //  FOLDER OPERATIONS 
 
   // Get all folders
   Future<List<Map<String, dynamic>>> getAllFolders() async {
@@ -187,7 +189,7 @@ class DatabaseHelper {
     );
   }
 
-  // ===== CARD OPERATIONS =====
+  //  CARD OPERATIONS 
 
   // Get all cards
   Future<List<Map<String, dynamic>>> getAllCards() async {
